@@ -6,7 +6,11 @@ async function bootstrap() {
   
   // Enable CORS
   app.enableCors({
-    origin: process.env.MAIN_APP_URL,
+    origin: [
+      process.env.MAIN_APP_URL,
+      'http://localhost:5173',
+      'https://tax-calculator.ameer.com.np'
+    ].filter(Boolean),
     credentials: true,
   });
   
